@@ -13,5 +13,7 @@ int main()
     system("pause");
     system("pause");
     system("pause");
+
+    cout<< "jol jol";
     return 0;
 }
