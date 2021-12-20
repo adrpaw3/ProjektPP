@@ -4,5 +4,7 @@ using namespace std;
 int main()
 {
     cout << "Witaj w aplikacji restauracji Rzygi Sranie przy ulicy Srakiej 69a!\n";
+
+    int jebacStareBabyProdem =0;
     return 0;
 }
