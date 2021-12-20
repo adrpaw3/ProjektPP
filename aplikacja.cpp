@@ -7,5 +7,11 @@ int main()
 
     int jebacStareBabyProdem =0;
     system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
     return 0;
 }
