@@ -1,7 +1,11 @@
 #include <iostream>
+#include <ctime>
+#include <conio.h>
 using namespace std;
 
-int ChoiceHereTakeaway()
+
+
+int choiceHereTakeaway()
 {
     int ifHere;
     cout << "\nWpisz \"1\" jesli danie ma byc na miejscu.\n";
@@ -14,11 +18,11 @@ int ChoiceHereTakeaway()
     else
     {
         cout << "\nNie wybrano poprawnej opcji!";
-        ChoiceHereTakeaway();
+        choiceHereTakeaway();
     }
 }
 
-int Table()
+int table()
 {
     cout << "\nPodaj numer stolika od 1 do 14.\n";
     int tableNumber;
@@ -30,21 +34,29 @@ int Table()
     else
     {
         cout << "\nNieprawidlowy numer stolika.\n";
-        Table();
+        table();
     }
 }
 
 int main()
 {
-    cout << "Witaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
+    struct tm newTime;
+    time_t now = time(0);
+    localtime_s(&newTime, &now);
+    cout << newTime.tm_hour << ":" << newTime.tm_min;
+
+
+    cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
     cout << "Wcisnij dowolny klawisz, aby kontynowac";
     cin.ignore(1, '\n');
-    int hereOrTakeaway = ChoiceHereTakeaway();
+
+    int hereOrTakeaway = choiceHereTakeaway();
     int hereNumber;
     string adress;
+
     if (hereOrTakeaway == 1)
     {
-        hereNumber = Table();
+        hereNumber = table();
         cout << "\nWybrales stolik numer: " << hereNumber;
     }
     else
@@ -52,9 +64,16 @@ int main()
         cout << "\nPodaj adres.\n";
         cin >> adress;
         cout << "\nZamowienie bedzie dostarczone na adres: " << adress;
+        cout << "\nPodaj godzine dostarczenia zamowienia.";
+        cout << "\nAktualna godzina: ";
+        struct tm newTime;
+        time_t now = time(0);
+        localtime_s(&newTime, &now);
+        cout << newTime.tm_hour << ":" << newTime.tm_min;
+
     }
 
 
 
-
+    return 0;
 }
