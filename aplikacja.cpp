@@ -1,58 +1,22 @@
-#include <iostream>
-#include <ctime>
-#include <conio.h>
-using namespace std;
-
-
-
-int choiceHereTakeaway()
-{
-    int ifHere;
-    cout << "\nWpisz \"1\" jesli danie ma byc na miejscu.\n";
-    cout << "Wpisz \"2\" jesli danie ma byc na dowoz.\n";
-    cin >> ifHere;
-    if (ifHere == 1 || ifHere == 2)
-    {
-        return ifHere;
-    }
-    else
-    {
-        cout << "\nNie wybrano poprawnej opcji!";
-        choiceHereTakeaway();
-    }
-}
-
-int table()
-{
-    cout << "\nPodaj numer stolika od 1 do 14.\n";
-    int tableNumber;
-    cin >> tableNumber;
-    if (tableNumber >= 1 && tableNumber <= 14) 
-    {
-        return tableNumber;
-    }
-    else
-    {
-        cout << "\nNieprawidlowy numer stolika.\n";
-        table();
-    }
-}
+#include "Header.h"
 
 int main()
 {
+    powitanie();
     struct tm newTime;
     time_t now = time(0);
     localtime_s(&newTime, &now);
-    cout << newTime.tm_hour << ":" << newTime.tm_min;
+//    cout << newTime.tm_hour << ":" << newTime.tm_min;
 
-
-    cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
-    cout << "Wcisnij dowolny klawisz, aby kontynowac";
-    cin.ignore(1, '\n');
 
     int hereOrTakeaway = choiceHereTakeaway();
     int hereNumber;
-    string adress;
+    int takeAwayHour;
+    int takeAwayMin;
+    char colon;
+    string street;
+    int streetNumber;
+    int flatNumber;
 
     if (hereOrTakeaway == 1)
     {
@@ -61,19 +25,36 @@ int main()
     }
     else
     {
-        cout << "\nPodaj adres.\n";
-        cin >> adress;
-        cout << "\nZamowienie bedzie dostarczone na adres: " << adress;
-        cout << "\nPodaj godzine dostarczenia zamowienia.";
-        cout << "\nAktualna godzina: ";
+        cout << "\nPodaj adres.\n"<<"Ulica:";
+        while (!(cin >> street))
+        {
+            cout << "\nPodaj prawidlowa ulice:";
+            cin.clear();
+            cin.ignore(123, '\n');
+        }
+        cout << "\nNumer ulicy:";
+        while (!(cin >> streetNumber))
+        {
+            cout << "\nPodaj prawidlowy numer ulicy:";
+            cin.clear();
+            cin.ignore(123, '\n');
+        }
+        cout << "\nNumer mieszkania:";
+        while (!(cin >> flatNumber))
+        {
+            cout << "\nPodaj prawidlowy numer mieszkania:";
+            cin.clear();
+            cin.ignore(123, '\n');
+        }
+        cout << "\nZamowienie bedzie dostarczone na adres: "<<street<< " " << streetNumber << "/" << flatNumber;
+        cout << "\nWybierz godzine dostarczenia zamowienia sposrod podanych ponizej.\n";
+
+        cin >> takeAwayHour >> colon >> takeAwayMin;
+        cout << takeAwayHour << ":" << takeAwayMin;
+
         struct tm newTime;
         time_t now = time(0);
         localtime_s(&newTime, &now);
-        cout << newTime.tm_hour << ":" << newTime.tm_min;
-
     }
-
-
-
     return 0;
 }
