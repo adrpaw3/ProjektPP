@@ -6,12 +6,13 @@
 using namespace std;
 
 int hereNumber;
-int takeAwayHour;
-int takeAwayMin;
+int deliveryHour;
+int deliveryMin;
 char colon;
 string addressStreet;
 int addressStreetNumber;
 int addressFlatNumber;
+string ddeliveryTime;
 
 void powitanie()
 {
@@ -20,7 +21,7 @@ void powitanie()
     cin.ignore(1, '\n');
     cout << "\x1B[2J\x1B[H";
 }
-int choiceHereTakeaway()
+int choiceHereDelivery()
 {
     int ifHere;
     cout << "Wpisz \"1\" jesli danie ma byc na miejscu.\n";
@@ -33,7 +34,7 @@ int choiceHereTakeaway()
     else
     {
         cout << "\nNie wybrano poprawnej opcji!\n";
-        choiceHereTakeaway();
+        choiceHereDelivery();
     }
 }
 int table()
@@ -84,4 +85,25 @@ int flatNumber()
     }
     return flatNum;
 }
-
+string deliveryT()
+{
+    int delH;
+    int delM;
+    string delTime;
+    cout << "\nWybierz godzine dostarczenia zamowienia sposrod podanych ponizej.\n";
+    cin >> delH >> colon >> delM;
+    if (delH >= 0 && delH <= 23 && delM >= 0 && delM <= 59)
+    {
+        stringstream ss;
+        ss << delH;
+        ss << colon;
+        ss << delM;
+        ss >> delTime;
+        return delTime;
+    }
+    else
+    {
+        cout << "\nNieprawidlowy format godziny.\n";
+            deliveryT();
+    }
+}

@@ -9,11 +9,11 @@ int main()
 //    cout << newTime.tm_hour << ":" << newTime.tm_min;
 
 
-    int hereOrTakeaway = choiceHereTakeaway();
+    int hereOrDelivery = choiceHereDelivery();
     
 
 
-    if (hereOrTakeaway == 1)
+    if (hereOrDelivery == 1)
     {
         hereNumber = table();
         cout << "\nWybrales stolik numer: " << hereNumber;
@@ -24,14 +24,8 @@ int main()
         addressStreetNumber = streetNumber();
         addressFlatNumber = flatNumber();
         cout << "\nZamowienie bedzie dostarczone na adres: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber;
-        cout << "\nWybierz godzine dostarczenia zamowienia sposrod podanych ponizej.\n";
-
-        cin >> takeAwayHour >> colon >> takeAwayMin;
-        cout << takeAwayHour << ":" << takeAwayMin;
-
-        struct tm newTime;
-        time_t now = time(0);
-        localtime_s(&newTime, &now);
+        ddeliveryTime = deliveryT();
+        cout << "\nZamowienie bedzie dostarczone na godzine: " << ddeliveryTime;
     }
     return 0;
 }
