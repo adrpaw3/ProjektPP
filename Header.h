@@ -13,13 +13,20 @@ string addressStreet;
 int addressStreetNumber;
 int addressFlatNumber;
 string ddeliveryTime;
+int hereOrDelivery;
 
-void powitanie()
+void welcome()
 {
     cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
     cout << "Wcisnij dowolny klawisz, aby kontynowac";
     cin.ignore(1, '\n');
     cout << "\x1B[2J\x1B[H";
+}
+void exiting()
+{
+    cout << "\x1B[2J\x1B[H";
+    cout << "\n\nDziekujemy za skorzystanie z programu!\n\n";
+    system("pause");
 }
 int choiceHereDelivery()
 {

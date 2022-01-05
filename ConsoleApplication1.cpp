@@ -2,17 +2,17 @@
 
 int main()
 {
-    powitanie();
+    welcome();
+    atexit(exiting);
+
     struct tm newTime;
     time_t now = time(0);
     localtime_s(&newTime, &now);
 //    cout << newTime.tm_hour << ":" << newTime.tm_min;
 
 
-    int hereOrDelivery = choiceHereDelivery();
-    
-
-
+    hereOrDelivery = choiceHereDelivery();
+ 
     if (hereOrDelivery == 1)
     {
         hereNumber = table();
