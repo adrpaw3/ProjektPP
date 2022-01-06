@@ -97,7 +97,7 @@ string deliveryT()
     int delH;
     int delM;
     string delTime;
-    cout << "\nWybierz godzine dostarczenia zamowienia sposrod podanych ponizej.\n";
+    cout << "\nWybierz godzine dostarczenia zamowienia.\n";
     cin >> delH >> colon >> delM;
     if (delH >= 0 && delH <= 23 && delM >= 0 && delM <= 59)
     {
@@ -112,5 +112,22 @@ string deliveryT()
     {
         cout << "\nNieprawidlowy format godziny.\n";
             deliveryT();
+    }
+}
+void tableNumberElseDelivery()
+{
+    if (hereOrDelivery == 1)
+    {
+        hereNumber = table();
+        cout << "\nWybrales stolik numer: " << hereNumber;
+    }
+    else
+    {
+        addressStreet = street();
+        addressStreetNumber = streetNumber();
+        addressFlatNumber = flatNumber();
+        cout << "\nZamowienie bedzie dostarczone na adres: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber;
+        ddeliveryTime = deliveryT();
+        cout << "\nZamowienie bedzie dostarczone na godzine: " << ddeliveryTime;
     }
 }
