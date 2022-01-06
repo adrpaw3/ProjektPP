@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include <ctime>
 #include <string>
 #include <sstream>
+#include <conio.h>
 using namespace std;
 
 int hereNumber;
@@ -14,11 +14,12 @@ int addressStreetNumber;
 int addressFlatNumber;
 string ddeliveryTime;
 int hereOrDelivery;
+unsigned char inputChar;
 
 void welcome()
 {
     cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
-    cout << "Wcisnij dowolny klawisz, aby kontynowac";
+    cout << "Wcisnij enter, aby kontynowac";
     cin.ignore(1, '\n');
     cout << "\x1B[2J\x1B[H";
 }
