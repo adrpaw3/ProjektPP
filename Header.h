@@ -63,7 +63,8 @@ int table()
 }
 string street()
 {
-    cout << "\nPodaj adres.\n" << "Ulica:";
+    cout << "\nPodaj adres.\n"
+         << "Ulica:";
     string streetS;
     cin.clear();
     cin.ignore(123, '\n');
@@ -113,7 +114,7 @@ string deliveryT()
     else
     {
         cout << "\nNieprawidlowy format godziny.\n";
-            deliveryT();
+        deliveryT();
     }
 }
 void tableNumberElseDelivery()
@@ -134,12 +135,11 @@ void tableNumberElseDelivery()
     }
 }
 
-
-inline int choiceOfDishesFromTheMenu()
+inline void choiceOfDishesFromTheMenu()
 {
     fstream file;
-    string dirName = "D:\\cdv informatyka\\pp\\adama\\";
-    string fileName = dirName + "Menu.txt";
+    //string dirName = "C:\\Users\\adamw\\source\\repos\\Projekt_Podstawy_Programowania\\Projekt_Podstawy_Programowania\\";
+    //string fileName = dirName + "Menu.txt";
     int dishNumber = 0;
     int numberOfServings = 0;
     float coast = 0;
@@ -148,15 +148,13 @@ inline int choiceOfDishesFromTheMenu()
     string order[20];
     string firstElementOfLine;
     int number = 0;
-    int counterOfServing = 0;
     int counterOfDishes = 1;
-    file.open(fileName);
+    file.open("Menu.txt");
     string line;
-
 
     if (file.is_open())
     {
-        cout << "Prosze zlozyc zamowienie:" << endl;
+        cout << "Please place an order:" << endl;
 
         while (getline(file, line))
         {
@@ -164,18 +162,18 @@ inline int choiceOfDishesFromTheMenu()
         }
         file.close();
 
-
         while (endOrder == 1)
         {
-            cout << "Wybierz numer dania: ";
-            cin >> dishNumber; cout << endl;
+            cout << "Please select a dish number: ";
+            cin >> dishNumber;
+            cout << endl;
 
-            if (dishNumber > 0 and dishNumber < 21)
+            if (dishNumber > 0 && dishNumber < 21)
             {
-                cout << "Podaj liczbe porcji: ";
-                cin >> numberOfServings; cout << endl;
+                cout << "Please enter the number of servings: ";
+                cin >> numberOfServings;
+                cout << endl;
                 file.open(fileName);
-
 
                 while (true)
                 {
@@ -188,45 +186,49 @@ inline int choiceOfDishesFromTheMenu()
                     }
                 }
 
-                while (counterOfServing < numberOfServings)
-                {
-
-                    line.replace(0, 1, to_string(counterOfDishes));
-                    order[number + counterOfServing] = line;
-                    counterOfServing++;
-                    counterOfDishes++;
-                }
-                counterOfServing = 0;
-
-
-                file.close();
-
                 prise = (line[line.find('$') - 2]);
                 prise = prise + (line[line.find('$') - 1]);
                 coast = coast + (stoi(prise) * numberOfServings);
-                number = number + numberOfServings;
+
+                if (prise[0] == ' ')
+                {
+                    prise.erase(0, 1);
+                    prise.append(" ");
+                }
+
+                line.insert(line.find('$') - 7, to_string(numberOfServings));
+                line.insert(line.find('$') - 7, "x");
+                line.replace(line.find('x') + 1, 2, prise);
+                line.replace(line.find('$') - 2, 2, to_string(stoi(prise) * numberOfServings));
+
+                line.replace(0, 1, to_string(counterOfDishes));
+                order[number] = line;
+                counterOfDishes++;
+                number++;
+                file.close();
             }
             else
             {
-                cout << "Nie mamy takiego dania";
+                cout << "we don't have such an dishes on our menu\n";
             }
-            cout << "Co dalej:" << endl;
-            cout << "1 - kontynuacja zamowienia" << endl;
-            cout << "2 - usuniecie pozycji z zamowienia" << endl;
-            cout << "3 - to wszystko, poprosze rachunek" << endl;
+            cout << "What you want to do:" << endl;
+            cout << "1 - if you want to continue placing the order" << endl;
+            cout << "2 - if you want to remove something from your order" << endl;
+            cout << "3- that's all the bill, please" << endl;
+            cout << "Select an option: ";
             cin >> endOrder;
         }
-
     }
 
-    cout << "Actual order:" << endl;
-    for (int displayOrder = 0; displayOrder < number; )
+    if (endOrder == 3)
     {
-        cout << order[displayOrder] << endl;
-        displayOrder++;
+        cout << "Actual order:" << endl;
+        for (int displayOrder = 0; displayOrder < number;)
+        {
+            cout << order[displayOrder] << endl;
+            displayOrder++;
+        }
+        cout << "-----------------------------------------------------" << endl;
+        cout << "current account:\t\t\t\t  " << coast << "$" << endl;
     }
-    cout << "---------------------------------------------------" << endl;
-    cout << "current account:\t\t\t\t" << coast << "$" << endl;
-
-    return 0;
 }
