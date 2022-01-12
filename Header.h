@@ -167,12 +167,12 @@ inline int choiceOfDishesFromTheMenu()
 
         while (endOrder == 1)
         {
-            cout << "Please select a dish number: ";
+            cout << "Wybierz numer dania: ";
             cin >> dishNumber; cout << endl;
 
             if (dishNumber > 0 and dishNumber < 21)
             {
-                cout << "Please enter the number of servings: ";
+                cout << "Podaj liczbe porcji: ";
                 cin >> numberOfServings; cout << endl;
                 file.open(fileName);
 
@@ -208,12 +208,12 @@ inline int choiceOfDishesFromTheMenu()
             }
             else
             {
-                cout << "we don't have such an dishes on our menu";
+                cout << "Nie mamy takiego dania";
             }
-            cout << "What you want to do:" << endl;
-            cout << "1 - if you want to continue placing the order" << endl;
-            cout << "2 - if you want to remove something from your order" << endl;
-            cout << "3- that's all the bill, please" << endl;
+            cout << "Co dalej:" << endl;
+            cout << "1 - kontynuacja zamowienia" << endl;
+            cout << "2 - usuniecie pozycji z zamowienia" << endl;
+            cout << "3 - to wszystko, poprosze rachunek" << endl;
             cin >> endOrder;
         }
 
