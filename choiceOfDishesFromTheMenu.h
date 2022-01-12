@@ -6,11 +6,9 @@
 #include <conio.h>
 using namespace std;
 
-inline int choiceOfDishesFromTheMenu()
+void choiceOfDishesFromTheMenu()
 {
     fstream file;
-    //string dirName = "C:\\Users\\adamw\\source\\repos\\Projekt_Podstawy_Programowania\\Projekt_Podstawy_Programowania\\";
-    //string fileName = dirName + "Menu.txt";
     int dishNumber = 0;
     int numberOfServings = 0;
     float coast = 0;
@@ -102,5 +100,4 @@ inline int choiceOfDishesFromTheMenu()
         cout << "-----------------------------------------------------" << endl;
         cout << "current account:\t\t\t\t  " << coast << "$" << endl;
     }
-    return 0;
 }

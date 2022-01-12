@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -117,7 +116,7 @@ string deliveryT()
         cout << "\nNieprawidlowy format godziny.\n";
         deliveryT();
     }
-    return deltime;
+    return NULL;
 }
 void tableNumberElseDelivery()
 {
