@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 #include <conio.h>
@@ -32,7 +33,7 @@ void exiting()
 int choiceHereDelivery()
 {
     int ifHere;
-    cout << "Wpisz \"1\" jesli danie ma byc na miejscu.\n";
+    cout << "\nWpisz \"1\" jesli danie ma byc na miejscu.\n";
     cout << "Wpisz \"2\" jesli danie ma byc na dowoz.\n";
     cin >> ifHere;
     if (ifHere == 1 || ifHere == 2)
@@ -131,4 +132,101 @@ void tableNumberElseDelivery()
         ddeliveryTime = deliveryT();
         cout << "\nZamowienie bedzie dostarczone na godzine: " << ddeliveryTime;
     }
+}
+
+
+inline int choiceOfDishesFromTheMenu()
+{
+    fstream file;
+    string dirName = "D:\\cdv informatyka\\pp\\adama\\";
+    string fileName = dirName + "Menu.txt";
+    int dishNumber = 0;
+    int numberOfServings = 0;
+    float coast = 0;
+    string prise;
+    int endOrder = 1;
+    string order[20];
+    string firstElementOfLine;
+    int number = 0;
+    int counterOfServing = 0;
+    int counterOfDishes = 1;
+    file.open(fileName);
+    string line;
+
+
+    if (file.is_open())
+    {
+        cout << "Prosze zlozyc zamowienie:" << endl;
+
+        while (getline(file, line))
+        {
+            cout << line << "\n";
+        }
+        file.close();
+
+
+        while (endOrder == 1)
+        {
+            cout << "Please select a dish number: ";
+            cin >> dishNumber; cout << endl;
+
+            if (dishNumber > 0 and dishNumber < 21)
+            {
+                cout << "Please enter the number of servings: ";
+                cin >> numberOfServings; cout << endl;
+                file.open(fileName);
+
+
+                while (true)
+                {
+                    getline(file, line);
+                    firstElementOfLine = line[0];
+
+                    if (firstElementOfLine == to_string(dishNumber))
+                    {
+                        break;
+                    }
+                }
+
+                while (counterOfServing < numberOfServings)
+                {
+
+                    line.replace(0, 1, to_string(counterOfDishes));
+                    order[number + counterOfServing] = line;
+                    counterOfServing++;
+                    counterOfDishes++;
+                }
+                counterOfServing = 0;
+
+
+                file.close();
+
+                prise = (line[line.find('$') - 2]);
+                prise = prise + (line[line.find('$') - 1]);
+                coast = coast + (stoi(prise) * numberOfServings);
+                number = number + numberOfServings;
+            }
+            else
+            {
+                cout << "we don't have such an dishes on our menu";
+            }
+            cout << "What you want to do:" << endl;
+            cout << "1 - if you want to continue placing the order" << endl;
+            cout << "2 - if you want to remove something from your order" << endl;
+            cout << "3- that's all the bill, please" << endl;
+            cin >> endOrder;
+        }
+
+    }
+
+    cout << "Actual order:" << endl;
+    for (int displayOrder = 0; displayOrder < number; )
+    {
+        cout << order[displayOrder] << endl;
+        displayOrder++;
+    }
+    cout << "---------------------------------------------------" << endl;
+    cout << "current account:\t\t\t\t" << coast << "$" << endl;
+
+    return 0;
 }
