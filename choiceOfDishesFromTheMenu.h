@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,7 +6,7 @@
 #include <conio.h>
 using namespace std;
 
-inline void choiceOfDishesFromTheMenu()
+inline int choiceOfDishesFromTheMenu()
 {
     fstream file;
     //string dirName = "C:\\Users\\adamw\\source\\repos\\Projekt_Podstawy_Programowania\\Projekt_Podstawy_Programowania\\";
@@ -101,4 +102,5 @@ inline void choiceOfDishesFromTheMenu()
         cout << "-----------------------------------------------------" << endl;
         cout << "current account:\t\t\t\t  " << coast << "$" << endl;
     }
+    return 0;
 }
