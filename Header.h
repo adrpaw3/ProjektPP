@@ -18,21 +18,20 @@ unsigned char inputChar;
 
 void welcome()
 {
-    cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
-    cout << "Wcisnij enter, aby kontynowac";
-    cin.ignore(1, '\n');
+    cout << "\nWelcome to the Let's IT restaurant\n";
+    system("pause");
 }
 void exiting()
 {
     cin.ignore(1, '\n');
-    cout << "\n\nDziekujemy za skorzystanie z programu!\n\n";
+    cout << "\n\nThank you for using our program!\n\n";
     system("pause");
 }
 int choiceHereDelivery()
 {
     int ifHere;
-    cout << "\nWpisz \"1\" jesli danie ma byc na miejscu.\n";
-    cout << "Wpisz \"2\" jesli danie ma byc na dowoz.\n";
+    cout << "\nType \"1\" if you want to order on site.\n";
+    cout << "Type \"2\" if you want a delivery.\n";
     cin >> ifHere;
     if (ifHere == 1 || ifHere == 2)
     {
@@ -40,14 +39,14 @@ int choiceHereDelivery()
     }
     else
     {
-        cout << "\nNie wybrano poprawnej opcji!\n";
+        cout << "\nThe correct option was not selected!\n";
         choiceHereDelivery();
     }
     return 0;
 }
 int table()
 {
-    cout << "\nPodaj numer stolika od 1 do 14.\n";
+    cout << "\nEnter the table numer from 1 to 14!\n";
     int tableNumber;
     cin >> tableNumber;
     if (tableNumber >= 1 && tableNumber <= 14)
@@ -56,15 +55,15 @@ int table()
     }
     else
     {
-        cout << "\nNieprawidlowy numer stolika.\n";
+        cout << "\nInvalid table number!\n";
         table();
     }
     return 0;
 }
 string street()
 {
-    cout << "\nPodaj adres.\n"
-         << "Ulica:";
+    cout << "\nEnter address!\n"
+         << "Street:";
     string streetS;
     cin.clear();
     cin.ignore(123, '\n');
@@ -74,10 +73,10 @@ string street()
 int streetNumber()
 {
     int streetNum;
-    cout << "\nNumer ulicy:";
+    cout << "\nStreet number:";
     while (!(cin >> streetNum))
     {
-        cout << "\nPodaj prawidlowy numer ulicy:";
+        cout << "\nEnter a valid street number:";
         cin.clear();
         cin.ignore(123, '\n');
     }
@@ -86,10 +85,10 @@ int streetNumber()
 int flatNumber()
 {
     int flatNum;
-    cout << "\nNumer mieszkania:";
+    cout << "\nFlat number:";
     while (!(cin >> flatNum))
     {
-        cout << "\nPodaj prawidlowy numer mieszkania:";
+        cout << "\nEnter a valid flat number:";
         cin.clear();
         cin.ignore(123, '\n');
     }
@@ -100,7 +99,7 @@ string deliveryT()
     int delH;
     int delM;
     string delTime;
-    cout << "\nWybierz godzine dostarczenia zamowienia.\n";
+    cout << "\nSelect the time of order delivery\n";
     cin >> delH >> colon >> delM;
     if (delH >= 0 && delH <= 23 && delM >= 0 && delM <= 59)
     {
@@ -113,7 +112,7 @@ string deliveryT()
     }
     else
     {
-        cout << "\nNieprawidlowy format godziny.\n";
+        cout << "\nInvalid time format\n";
         deliveryT();
     }
     return NULL;
@@ -123,15 +122,15 @@ void tableNumberElseDelivery()
     if (hereOrDelivery == 1)
     {
         hereNumber = table();
-        cout << "\nWybrales stolik numer: " << hereNumber;
+        cout << "\nYour table number: " << hereNumber;
     }
     else
     {
         addressStreet = street();
         addressStreetNumber = streetNumber();
         addressFlatNumber = flatNumber();
-        cout << "\nZamowienie bedzie dostarczone na adres: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber;
+        cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber;
         ddeliveryTime = deliveryT();
-        cout << "\nZamowienie bedzie dostarczone na godzine: " << ddeliveryTime;
+        cout << "\nThe order will be delivered at " << ddeliveryTime;
     }
 }
