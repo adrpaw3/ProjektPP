@@ -22,11 +22,10 @@ void welcome()
     cout << "\nWitaj w restauracji Let's IT przy ulicy Wizualnej 62!\n";
     cout << "Wcisnij enter, aby kontynowac";
     cin.ignore(1, '\n');
-    cout << "\x1B[2J\x1B[H";
 }
 void exiting()
 {
-    cout << "\x1B[2J\x1B[H";
+    cin.ignore(1, '\n');
     cout << "\n\nDziekujemy za skorzystanie z programu!\n\n";
     system("pause");
 }
