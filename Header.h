@@ -173,7 +173,7 @@ inline void choiceOfDishesFromTheMenu()
                 cout << "Please enter the number of servings: ";
                 cin >> numberOfServings;
                 cout << endl;
-                file.open(fileName);
+                file.open("Menu.txt");
 
                 while (true)
                 {
