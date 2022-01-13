@@ -5,7 +5,7 @@
 #include <conio.h>
 using namespace std;
 
-int hereNumber;
+int hereNumber; //wybrany numer stolika
 int deliveryHour;
 int deliveryMin;
 char colon;
