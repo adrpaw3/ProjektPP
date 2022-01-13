@@ -4,9 +4,10 @@
 int main()
 {
     welcome();
+    whatName();
     atexit(exiting);
-    choiceOfDishesFromTheMenu();
     hereOrDelivery = choiceHereDelivery();
     tableNumberElseDelivery();
+    choiceOfDishesFromTheMenu();
     return 0;
 }

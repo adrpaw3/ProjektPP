@@ -15,6 +15,7 @@ int addressFlatNumber;
 string ddeliveryTime;
 int hereOrDelivery;
 unsigned char inputChar;
+string customerName;
 
 void welcome()
 {
@@ -118,6 +119,8 @@ string deliveryT()
     return NULL;
 }
 void tableNumberElseDelivery()
+
+
 {
     if (hereOrDelivery == 1)
     {
@@ -133,4 +136,9 @@ void tableNumberElseDelivery()
         ddeliveryTime = deliveryT();
         cout << "\nThe order will be delivered at " << ddeliveryTime;
     }
+}
+void whatName()
+{
+    cout << "What is your name?\n";
+    getline(cin,customerName);
 }
