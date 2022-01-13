@@ -1,4 +1,4 @@
-Danie: 						Cena:
+Dish: 						Price:
 
 1. pork chop with potatoes and sala               15$
 
