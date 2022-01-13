@@ -9,5 +9,6 @@ int main()
     hereOrDelivery = choiceHereDelivery();
     tableNumberElseDelivery();
     choiceOfDishesFromTheMenu();
+    summary();
     return 0;
 }
