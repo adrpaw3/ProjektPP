@@ -5,9 +5,9 @@
 #include <conio.h>
 using namespace std;
 
-int hereNumber;
-int deliveryHour;
-int deliveryMin;
+int hereNumber; // wybrany numer stolika
+int deliveryHour; // godzina dostarczenia zamowienia
+int deliveryMin; // minuta dostarczenia zamowienia
 char colon;
 string addressStreet;
 int addressStreetNumber;
@@ -15,6 +15,7 @@ int addressFlatNumber;
 string ddeliveryTime;
 int hereOrDelivery;
 unsigned char inputChar;
+string customerName; // imie klienta
 
 void welcome()
 {
@@ -118,19 +119,38 @@ string deliveryT()
     return NULL;
 }
 void tableNumberElseDelivery()
+
+
 {
     if (hereOrDelivery == 1)
     {
         hereNumber = table();
-        cout << "\nYour table number: " << hereNumber;
+        cout << "\nYour table number: " << hereNumber << "\n";
     }
     else
     {
         addressStreet = street();
         addressStreetNumber = streetNumber();
         addressFlatNumber = flatNumber();
-        cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber;
+        cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n";
         ddeliveryTime = deliveryT();
-        cout << "\nThe order will be delivered at " << ddeliveryTime;
+        cout << "\nThe order will be delivered at " << ddeliveryTime << "\n";
+    }
+}
+void whatName()
+{
+    cout << "What is your name?\n";
+    getline(cin,customerName);
+}
+void summary()
+{
+    if (hereOrDelivery == 1)
+    {
+    cout << "\nYour table number: " << hereNumber << "\n";
+    }
+    else
+    {
+    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n";
+    cout << "\nThe order will be delivered at " << ddeliveryTime << "\n";
     }
 }

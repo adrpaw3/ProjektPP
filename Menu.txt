@@ -1,9 +1,9 @@
-Danie: 						Cena:
+Danie: 						                     Cena:
 
-1. pork chop with potatoes and sala               15$
+1. pork chop with potatoes and sala                15$
 
-2. tomato soup                                     5$
+2. tomato soup                                      5$
 
-3. pasta with spinach                             12$
+3. pasta with spinach                              12$
 
 4. 
