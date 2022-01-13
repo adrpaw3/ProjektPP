@@ -9,6 +9,6 @@ int main()
     hereOrDelivery = choiceHereDelivery();
     tableNumberElseDelivery();
     choiceOfDishesFromTheMenu();
-    summary();
+    summary(); // podsumowuje zamowienie, podaje wybrany numer stolika lub adres zamowienia
     return 0;
 }
