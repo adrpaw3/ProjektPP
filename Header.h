@@ -5,9 +5,9 @@
 #include <conio.h>
 using namespace std;
 
-int hereNumber; //wybrany numer stolika
-int deliveryHour;
-int deliveryMin;
+int hereNumber; // wybrany numer stolika
+int deliveryHour; // godzina dostarczenia zamowienia
+int deliveryMin; // minuta dostarczenia zamowienia
 char colon;
 string addressStreet;
 int addressStreetNumber;
@@ -15,7 +15,7 @@ int addressFlatNumber;
 string ddeliveryTime;
 int hereOrDelivery;
 unsigned char inputChar;
-string customerName;
+string customerName; // imie klienta
 
 void welcome()
 {
