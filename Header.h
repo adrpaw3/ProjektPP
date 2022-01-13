@@ -125,7 +125,7 @@ void tableNumberElseDelivery()
     if (hereOrDelivery == 1)
     {
         hereNumber = table();
-        cout << "\nYour table number: " << hereNumber;
+        cout << "\nYour table number: " << hereNumber << "\n";
     }
     else
     {
