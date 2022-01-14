@@ -9,111 +9,116 @@ int hereNumber; // wybrany numer stolika
 int deliveryHour; // godzina dostarczenia zamowienia
 int deliveryMin; // minuta dostarczenia zamowienia
 char colon;
-string addressStreet;
-int addressStreetNumber;
-int addressFlatNumber;
-string ddeliveryTime;
-int hereOrDelivery;
+string addressStreet; // ulica
+int addressStreetNumber; // numer ulicy 
+int addressFlatNumber; // numer mieszkania
+string ddeliveryTime; // czas dostawy
+int hereOrDelivery; // na miejscu lub na dowóz 
 unsigned char inputChar;
 string customerName; // imie klienta
 
 void welcome()
 {
-    cout << "\nWelcome to the Let's IT restaurant\n";
+    cout << "\nWelcome to the Let's IT restaurant\n"; // wyświetl "Witamy w restauracji 'Let's IT'"
     system("pause");
 }
+
 void exiting()
 {
     cin.ignore(1, '\n');
-    cout << "\n\nThank you for using our program!\n\n";
+    cout << "\n\nThank you for using our program!\n\n"; // wyświetl "Dziękujemy za korzystanie z naszego programu!"
     system("pause");
 }
 int choiceHereDelivery()
 {
     int ifHere;
-    cout << "\nType \"1\" if you want to order on site.\n";
-    cout << "Type \"2\" if you want a delivery.\n";
-    cin >> ifHere;
-    if (ifHere == 1 || ifHere == 2)
+    cout << "\nType \"1\" if you want to order on site.\n"; // wyświetl "Napisz 1 jeśli chcesz zamówić na miejscu."
+    cout << "Type \"2\" if you want a delivery.\n"; // wyświetl "Napisz 2 jeśli chcesz dostawę."
+    cin >> ifHere; // pobierz to co zostało wpisane 
+    if (ifHere == 1 || ifHere == 2) // jeśli 1 lub 2 
     {
-        return ifHere;
+        return ifHere; // zwróć tą liczbę
     }
-    else
+    else // w przeciwnym wypadku
     {
-        cout << "\nThe correct option was not selected!\n";
+        cout << "\nThe correct option was not selected!\n"; // wyświetl "Nie wybrano prawidłowej opcji!"
         choiceHereDelivery();
     }
     return 0;
 }
 int table()
 {
-    cout << "\nEnter the table numer from 1 to 14!\n";
-    int tableNumber;
-    cin >> tableNumber;
-    if (tableNumber >= 1 && tableNumber <= 14)
+    cout << "\nEnter the table numer from 1 to 14!\n"; // wyświetl "Wpisz numer stolika od 1 do 14!"
+    int tableNumber; // zmienna int numer stolika
+    cin >> tableNumber; // pobierz numer stolika który został podany przez użytkownika
+    if (tableNumber >= 1 && tableNumber <= 14) // jeśli nr stolika jest równy większy 1 i mniejszy równy 14
     {
-        return tableNumber;
+        return tableNumber; // zwróć tą liczbę
     }
-    else
+    else // w przeciwnym wypadku
     {
-        cout << "\nInvalid table number!\n";
+        cout << "\nInvalid table number!\n"; // wypisz "Nieprawidłowy numer stolika!"
         table();
     }
     return 0;
 }
+//pobieranie informacji adresu od użytkownika
 string street()
 {
-    cout << "\nEnter address!\n"
+    cout << "\nEnter address!\n" // wyświetl "Wpisz adres"
          << "Street:";
     string streetS;
     cin.clear();
     cin.ignore(123, '\n');
     getline(cin, streetS);
-    return streetS;
+    return streetS; // zwróć co użytkownik podał
 }
+// pobranie informacji o numerze ulicy od użytkownika
 int streetNumber()
 {
     int streetNum;
-    cout << "\nStreet number:";
+    cout << "\nStreet number:"; // wyświetl "Numer ulicy: "
     while (!(cin >> streetNum))
     {
-        cout << "\nEnter a valid street number:";
+        cout << "\nEnter a valid street number:"; // wyświetl "Wpisz poprawny numer ulicy: "
         cin.clear();
         cin.ignore(123, '\n');
     }
-    return streetNum;
+    return streetNum; // zwróć co użytkownik podał
 }
+// pobranie informacji o numerze mieszkania od użytkownika
 int flatNumber()
 {
     int flatNum;
-    cout << "\nFlat number:";
+    cout << "\nFlat number:"; // wyświetl "Numer mieszkania:"
     while (!(cin >> flatNum))
     {
-        cout << "\nEnter a valid flat number:";
+        cout << "\nEnter a valid flat number:"; // wyświetl "Wpisz poprawny numer mieszkania:"
         cin.clear();
         cin.ignore(123, '\n');
     }
-    return flatNum;
+    return flatNum; // zwróć co użytkownik podał
 }
+// pobranie informacji o terminie dostawy od użytkownika
 string deliveryT()
 {
     int delH;
     int delM;
     string delTime;
-    cout << "\nSelect the time of order delivery\n";
-    cin >> delH >> colon >> delM;
-    if (delH >= 0 && delH <= 23 && delM >= 0 && delM <= 59)
+    cout << "\nSelect the time of order delivery\n"; // wyświetl "Wybierz termin dostawy zamówienia"
+    cin >> delH >> colon >> delM; // pobranie od użutkownika godiny dostawy 
+    if (delH >= 0 && delH <= 23 && delM >= 0 && delM <= 59) // wertyfikacja poprawności wprowadzonej godziny 
     {
         stringstream ss;
         ss << delH;
         ss << colon;
         ss << delM;
         ss >> delTime;
-        return delTime;
+        return delTime; // zwrócenie sformołowanej godziny: hh:mm
     }
-    else
+    else 
     {
-        cout << "\nInvalid time format\n";
+        cout << "\nInvalid time format\n"; // wypisz "Nieprawidłowy format czasu"
         deliveryT();
     }
     return NULL;
@@ -122,35 +127,36 @@ void tableNumberElseDelivery()
 
 
 {
-    if (hereOrDelivery == 1)
+    if (hereOrDelivery == 1) // jeśli użytkownik wybrał 1
     {
-        hereNumber = table();
-        cout << "\nYour table number: " << hereNumber << "\n";
+        hereNumber = table(); // wybrany numer stolika
+        cout << "\nYour table number: " << hereNumber << "\n"; // wyświetl "Twój numer stolika: " wyświetla liczbę jaką podał użytkownik  
     }
-    else
+    else  
     {
-        addressStreet = street();
-        addressStreetNumber = streetNumber();
-        addressFlatNumber = flatNumber();
-        cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n";
+        addressStreet = street(); // adres ulicy
+        addressStreetNumber = streetNumber(); // numer ulicy
+        addressFlatNumber = flatNumber(); // numer mieszkania
+        cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na adres: " adres który podał użytkownik
         ddeliveryTime = deliveryT();
-        cout << "\nThe order will be delivered at " << ddeliveryTime << "\n";
+        cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl  "Zamówienie zostanie dostarczone na " wybrany czas przez użytkownika
     }
 }
 void whatName()
 {
-    cout << "What is your name?\n";
-    getline(cin,customerName);
+    cout << "What is your name?\n"; // wyświetl "Jak masz na imię?"
+    getline(cin,customerName); // pobierz co podał użytkownik
 }
+// podumowanie
 void summary()
 {
-    if (hereOrDelivery == 1)
+    if (hereOrDelivery == 1) // jeśli użytkownik wpisał 1
     {
-    cout << "\nYour table number: " << hereNumber << "\n";
+    cout << "\nYour table number: " << hereNumber << "\n"; // wyświetl "Twój numer stolika: wyświetl numer stolika który wybrał użytkownik"
     }
-    else
+    else 
     {
-    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n";
-    cout << "\nThe order will be delivered at " << ddeliveryTime << "\n";
+    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
+    cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
     }
 }
