@@ -22,13 +22,14 @@ void welcome()
     cout << "\nWelcome to the Let's IT restaurant\n"; // wyświetl "Witamy w restauracji 'Let's IT'"
     system("pause");
 }
-
+// procedura wykonujaca pewne operacje przy zamknieciu programu
 void exiting()
 {
     cin.ignore(1, '\n');
     cout << "\n\nThank you for using our program!\n\n"; // wyświetl "Dziękujemy za korzystanie z naszego programu!"
     system("pause");
 }
+// wybor na miejscu lub dostawa
 int choiceHereDelivery()
 {
     int ifHere;
@@ -46,6 +47,7 @@ int choiceHereDelivery()
     }
     return 0;
 }
+// wybor numeru stolika
 int table()
 {
     cout << "\nEnter the table numer from 1 to 14!\n"; // wyświetl "Wpisz numer stolika od 1 do 14!"
@@ -123,6 +125,7 @@ string deliveryT()
     }
     return NULL;
 }
+// jesli wybrano na miejscu - podaje numer stolika, jesli na wynos - pyta o adres i czas dostawy
 void tableNumberElseDelivery()
 
 
@@ -142,6 +145,7 @@ void tableNumberElseDelivery()
         cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl  "Zamówienie zostanie dostarczone na " wybrany czas przez użytkownika
     }
 }
+// procedura pyta o imie, nastepnie przypisuje podana przez uzytkownika linie tekstu pod zmienna
 void whatName()
 {
     cout << "What is your name?\n"; // wyświetl "Jak masz na imię?"
@@ -160,13 +164,14 @@ void summary()
     cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
     }
 }
+// zapisanie zamowienia do pliku
 void saveToFile()
 {
     ofstream myfile;
     string fileName = customerName + "'s order.txt";
     ifstream ifile;
-    int i = 1;
-    while (ifile)
+    int i = 1; 
+    while (ifile)// sprawdza czy plik o takiej istnieje - jesli istnieje, zmienia nazwe pliku, zeby nie nadpisac poprzedniego
     {
         ifile.open(fileName);
         i++;
