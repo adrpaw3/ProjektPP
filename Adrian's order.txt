@@ -1,0 +1,2 @@
+Customer name: Adrian
+Table number: 1

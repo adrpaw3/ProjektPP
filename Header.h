@@ -156,11 +156,34 @@ void summary()
     }
     else 
     {
-    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
+    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
     cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
     }
 }
 void saveToFile()
 {
-    
+    ofstream myfile;
+    string fileName = customerName + "'s order.txt";
+    ifstream ifile;
+    int i = 1;
+    while (ifile)
+    {
+        ifile.open(fileName);
+        i++;
+        stringstream ss;
+        ss << customerName << i;
+        ss >> fileName;
+        fileName = fileName + "'s order.txt";
+    }
+    myfile.open (fileName);
+    myfile << "Customer name: " << customerName << "\n";
+    if (hereOrDelivery == 1) // jeśli użytkownik wpisał 1
+    {
+        myfile << "Table number: " << hereNumber << "\n";
+    }
+    else 
+    {
+        myfile << "Address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n";
+        myfile << "Delivery time: " << ddeliveryTime;
+    }
 }

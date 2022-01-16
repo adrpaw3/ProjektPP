@@ -42,5 +42,6 @@ int main()
         displayOrder();
     }
     summary(); // podsumowuje zamowienie, podaje wybrany numer stolika lub adres zamowienia
+    saveToFile();
     return 0;
 }
