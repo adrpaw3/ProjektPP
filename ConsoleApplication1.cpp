@@ -11,3 +11,4 @@ int main()
     choiceOfDishesFromTheMenu(); // wybór dań z menu
     summary(); // podsumowuje zamowienie, podaje wybrany numer stolika lub adres zamowienia
     return 0;
+}
