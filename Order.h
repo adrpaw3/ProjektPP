@@ -139,6 +139,7 @@ int removeTheDish()
     {
         cout << "No such item" << endl;
     }
+    return 0;
 }
 
 void displayOrder()
