@@ -33,7 +33,7 @@ int main()
         cout << "What you want to do:" << endl;
         cout << "1 - if you want to continue placing the order" << endl;
         cout << "2 - if you want to remove something from your order" << endl;
-        cout << "3- that's all the bill, please" << endl;
+        cout << "3 - that's all the bill, please" << endl;
         cout << "Select an option: ";
         cin >> endOrder;
     }
