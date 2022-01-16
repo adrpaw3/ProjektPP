@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+#include <fstream> // do zarówno czytania jak i pisania do i z plików
 #include <string>
 #include <sstream>
 #include <conio.h>
@@ -159,4 +159,8 @@ void summary()
     cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
     cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
     }
+}
+void saveToFile()
+{
+    
 }
