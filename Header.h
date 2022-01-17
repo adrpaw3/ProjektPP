@@ -1,9 +1,9 @@
-#include <iostream>
+#include <iostream> // biblioteka wejscia wyjscia
 #include <fstream> // do zarówno czytania jak i pisania do i z plików
-#include <string>
-#include <sstream>
-#include <conio.h>
-using namespace std;
+#include <string> // biblioteka obslugujaca lancuchy znakow 
+#include <sstream> // zapewnia obsluge strumieni ciagow znakow
+#include <conio.h> // obsluga wejscia wyjscia z konsoli/terminala
+using namespace std; // zastosowanie przestrzeni nazw
 
 int hereNumber; // wybrany numer stolika
 int deliveryHour; // godzina dostarczenia zamowienia

@@ -1,8 +1,8 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <conio.h>
+#include <iostream> // biblioteka wejscia wyjscia
+#include <fstream> // do zarówno czytania jak i pisania do i z plików
+#include <string> // biblioteka obslugujaca lancuchy znakow
+#include <sstream> // zapewnia obsluge strumieni ciagow znakow
+#include <conio.h> // obsluga wejscia wyjscia z konsoli/terminala
 using namespace std;
 
 fstream file;

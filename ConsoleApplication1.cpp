@@ -1,5 +1,5 @@
-#include "Header.h"
-#include "Order.h"
+#include "Header.h" // biblioteka do zarzadzania zamowieniami w restauracji 
+#include "Order.h" // biblioteka obslugujaca menu i zamowienie
 
 int main()
 {
