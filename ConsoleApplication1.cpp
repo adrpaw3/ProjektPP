@@ -4,10 +4,6 @@
 #include "checkIfTheVariableIsANumber.h"
 using namespace std;
 
-//#ifndef checkIfTheVariableIsANumbe_h
-//#define checkIfTheVariableIsANumbe_h
-//#endif
-
 int main()
 {
     //welcome();
@@ -16,16 +12,13 @@ int main()
     // hereOrDelivery = choiceHereDelivery();
     // tableNumberElseDelivery(); // numer stolika bądź dostawa
     //**************************************************************************************
-    //  while (true)
-    // {
-    //   checkIfTheVariableIsANumber();
-    // }
 
     int endOrder = 1;
     int successfulRemove = 1;
     string checkTheNumber;
 
     fileOpen();
+
     while (endOrder != 4)
     {
 

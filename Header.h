@@ -1,9 +1,9 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <conio.h>
-using namespace std;
+#include <iostream> // biblioteka wejscia wyjscia
+#include <fstream> // do zarówno czytania jak i pisania do i z plików
+#include <string> // biblioteka obslugujaca lancuchy znakow 
+#include <sstream> // zapewnia obsluge strumieni ciagow znakow
+#include <conio.h> // obsluga wejscia wyjscia z konsoli/terminala
+using namespace std; // zastosowanie przestrzeni nazw
 
 int hereNumber; // wybrany numer stolika
 int deliveryHour; // godzina dostarczenia zamowienia
@@ -22,13 +22,14 @@ void welcome()
     cout << "\nWelcome to the Let's IT restaurant\n"; // wyświetl "Witamy w restauracji 'Let's IT'"
     system("pause");
 }
-
+// procedura wykonujaca pewne operacje przy zamknieciu programu
 void exiting()
 {
     cin.ignore(1, '\n');
     cout << "\n\nThank you for using our program!\n\n"; // wyświetl "Dziękujemy za korzystanie z naszego programu!"
     system("pause");
 }
+// wybor na miejscu lub dostawa
 int choiceHereDelivery()
 {
     int ifHere;
@@ -46,6 +47,7 @@ int choiceHereDelivery()
     }
     return 0;
 }
+// wybor numeru stolika
 int table()
 {
     cout << "\nEnter the table numer from 1 to 14!\n"; // wyświetl "Wpisz numer stolika od 1 do 14!"
@@ -123,6 +125,7 @@ string deliveryT()
     }
     return NULL;
 }
+// jesli wybrano na miejscu - podaje numer stolika, jesli na wynos - pyta o adres i czas dostawy
 void tableNumberElseDelivery()
 
 
@@ -142,6 +145,7 @@ void tableNumberElseDelivery()
         cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl  "Zamówienie zostanie dostarczone na " wybrany czas przez użytkownika
     }
 }
+// procedura pyta o imie, nastepnie przypisuje podana przez uzytkownika linie tekstu pod zmienna
 void whatName()
 {
     cout << "What is your name?\n"; // wyświetl "Jak masz na imię?"
@@ -156,7 +160,35 @@ void summary()
     }
     else 
     {
-    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << " " << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
+    cout << "\nThe order will be delivered to the following address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n"; // wyświetl "Zamówienie zostanie dostarczone na poniższy adres: wyświetla nazwę uliczy, nr ulicy i nr mieszkania"
     cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
+    }
+}
+// zapisanie zamowienia do pliku
+void saveToFile()
+{
+    ofstream myfile;
+    string fileName = customerName + "'s order.txt";
+    ifstream ifile;
+    int i = 1; 
+    while (ifile)// sprawdza czy plik o takiej istnieje - jesli istnieje, zmienia nazwe pliku, zeby nie nadpisac poprzedniego
+    {
+        ifile.open(fileName);
+        i++;
+        stringstream ss;
+        ss << customerName << i;
+        ss >> fileName;
+        fileName = fileName + "'s order.txt";
+    }
+    myfile.open (fileName);
+    myfile << "Customer name: " << customerName << "\n";
+    if (hereOrDelivery == 1) // jeśli użytkownik wpisał 1
+    {
+        myfile << "Table number: " << hereNumber << "\n";
+    }
+    else 
+    {
+        myfile << "Address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n";
+        myfile << "Delivery time: " << ddeliveryTime;
     }
 }

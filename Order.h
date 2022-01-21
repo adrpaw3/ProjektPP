@@ -7,10 +7,6 @@
 #include <windows.h>
 using namespace std;
 
-//#ifndef checkIfTheVariableIsANumbe_h
-//#define checkIfTheVariableIsANumbe_h
-//#endif
-
 fstream file;
 int cost = 0;
 string price;
@@ -292,7 +288,7 @@ void saveOrderInFile()
     string orderName;
     int orderNumber;
 
-       //orderFile.open();
+    //orderFile.open();
 
     for (int i = 0; i <= number + 1; i++)
     {
