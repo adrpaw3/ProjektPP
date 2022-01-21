@@ -1,9 +1,50 @@
-Dish: 						Price:
+Dish: 						                                                  Price:
 
-1. pork chop with potatoes and sala                15$
+---------------------------------Soup------------------------------
+1. Tomato soup                                                         5$
 
-2. tomato soup                                      5$
+2. vegetable soup                                                      6$
 
-3. pasta with spinach                              12$
+3. muschroom soup                                                      4$
 
-4. 
+4. cucumber soup                                                       5$
+
+--------------------------------Main dish--------------------------
+5. Pork chop with potatoes and salad                                  15$
+
+6. Dumplings                                                          11$
+
+7. Potato pancakes with stew                                          13$
+
+8. Pancakes with spinach                                              10$
+
+9. Risotto with vegetables, tomato sauce and grated cheese            13$
+
+
+-----------------------------Pasta---------------------------------
+10. Pasta with spinach                                                12$
+
+11. Pasta with shrimps                                                15$
+
+12. Pasta in cream sauce                                              13$
+
+13. Pasta with salmon                                                 16$
+
+----------------------------Salad----------------------------------
+
+14. Chef salad                                                        10$
+- lettuce, avocado, grilled mushrooms, 
+  tomato, cheddar cheese, lime sauce
+
+15. Chicken salad                                                     10$
+
+16. Greek salad                                                       11$
+
+---------------------------Desserts--------------------------------
+17. Strawberry cake                                                    7$
+
+18. Raspberry dessert with ice cream                                   8$
+
+19. Apple pie with ice creams                                          8$
+
+20. Cheesecake with raisins                                            7$
