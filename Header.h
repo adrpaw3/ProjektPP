@@ -170,7 +170,7 @@ void saveToFile()
     ofstream myfile;
     string fileName = customerName + "'s order.txt";
     ifstream ifile;
-    int i = 1; 
+    int i = 0; 
     while (ifile)// sprawdza czy plik o takiej istnieje - jesli istnieje, zmienia nazwe pliku, zeby nie nadpisac poprzedniego
     {
         ifile.open(fileName);
