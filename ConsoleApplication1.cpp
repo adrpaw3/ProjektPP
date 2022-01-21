@@ -6,12 +6,11 @@ using namespace std;
 
 int main()
 {
-    //welcome();
-    // whatName();
-    // atexit(exiting);
-    // hereOrDelivery = choiceHereDelivery();
-    // tableNumberElseDelivery(); // numer stolika bądź dostawa
-    //**************************************************************************************
+    welcome();
+    whatName();
+    atexit(exiting);
+    hereOrDelivery = choiceHereDelivery();
+    tableNumberElseDelivery(); // numer stolika bądź dostawa
 
     int endOrder = 1;
     int successfulRemove = 1;
@@ -64,9 +63,10 @@ int main()
     if (endOrder == 4)
     {
         displayOrderOrsaveInFile(endOrder);
-        saveOrderInFile();
+  //      saveOrderInFile();
         cin >> endOrder;
     }
-    // summary(); // podsumowuje zamowienie, podaje wybrany numer stolika lub adres zamowienia
+    summary(); // podsumowuje zamowienie, podaje wybrany numer stolika lub adres zamowienia
+    saveToFile();
     return 0;
 }
