@@ -280,18 +280,6 @@ int displayOrderOrsaveInFile(int choice)
         order[number] = lineSummary;
         order[number + 1] = summary;
     }
+    return 0;
 }
 
-void saveOrderInFile()
-{
-    fstream orderFile;
-    string orderName;
-    int orderNumber;
-
-    //orderFile.open();
-
-    for (int i = 0; i <= number + 1; i++)
-    {
-        cout << order[i] << endl;
-    }
-}

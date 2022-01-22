@@ -164,31 +164,3 @@ void summary()
     cout << "\nThe order will be delivered at " << ddeliveryTime << "\n"; // wyświetl "Zamówienie zostanie dostarczone na" wybrany czas
     }
 }
-// zapisanie zamowienia do pliku
-void saveToFile()
-{
-    ofstream myfile;
-    string fileName = customerName + "'s order.txt";
-    ifstream ifile;
-    int i = 0; 
-    while (ifile)// sprawdza czy plik o takiej istnieje - jesli istnieje, zmienia nazwe pliku, zeby nie nadpisac poprzedniego
-    {
-        ifile.open(fileName);
-        i++;
-        stringstream ss;
-        ss << customerName << i;
-        ss >> fileName;
-        fileName = fileName + "'s order.txt";
-    }
-    myfile.open (fileName);
-    myfile << "Customer name: " << customerName << "\n";
-    if (hereOrDelivery == 1) // jeśli użytkownik wpisał 1
-    {
-        myfile << "Table number: " << hereNumber << "\n";
-    }
-    else 
-    {
-        myfile << "Address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n";
-        myfile << "Delivery time: " << ddeliveryTime;
-    }
-}
