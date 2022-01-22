@@ -3,6 +3,8 @@
 #include <string> // biblioteka obslugujaca lancuchy znakow 
 #include <sstream> // zapewnia obsluge strumieni ciagow znakow
 #include <conio.h> // obsluga wejscia wyjscia z konsoli/terminala
+#include "checkIfTheVariableIsANumber.h"
+#include <windows.h>
 using namespace std; // zastosowanie przestrzeni nazw
 
 int hereNumber; // wybrany numer stolika
@@ -16,6 +18,7 @@ string ddeliveryTime; // czas dostawy
 int hereOrDelivery; // na miejscu lub na dowóz 
 unsigned char inputChar;
 string customerName; // imie klienta
+string numberCheck;
 
 void welcome()
 {
@@ -35,7 +38,10 @@ int choiceHereDelivery()
     int ifHere;
     cout << "\nType \"1\" if you want to order on site.\n"; // wyświetl "Napisz 1 jeśli chcesz zamówić na miejscu."
     cout << "Type \"2\" if you want a delivery.\n"; // wyświetl "Napisz 2 jeśli chcesz dostawę."
-    cin >> ifHere; // pobierz to co zostało wpisane 
+    cin >> numberCheck; // pobierz to co zostało wpisane
+    cout << "\n";
+    ifHere = stoi(checkIfTheVariableIsANumber1(numberCheck));
+    numberCheck.clear();
     if (ifHere == 1 || ifHere == 2) // jeśli 1 lub 2 
     {
         return ifHere; // zwróć tą liczbę
@@ -52,7 +58,10 @@ int table()
 {
     cout << "\nEnter the table numer from 1 to 14!\n"; // wyświetl "Wpisz numer stolika od 1 do 14!"
     int tableNumber; // zmienna int numer stolika
-    cin >> tableNumber; // pobierz numer stolika który został podany przez użytkownika
+    cin >> numberCheck; // pobierz numer stolika który został podany przez użytkownika
+    cout << "\n";
+    tableNumber = stoi(checkIfTheVariableIsANumber1(numberCheck));
+    numberCheck.clear();
     if (tableNumber >= 1 && tableNumber <= 14) // jeśli nr stolika jest równy większy 1 i mniejszy równy 14
     {
         return tableNumber; // zwróć tą liczbę
