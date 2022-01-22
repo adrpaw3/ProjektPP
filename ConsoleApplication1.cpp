@@ -92,6 +92,7 @@ int main()
         myfile << "Address: " << addressStreet << " " << addressStreetNumber << "/" << addressFlatNumber << "\n";
         myfile << "Delivery time: " << ddeliveryTime << "\n";
     }
+    myfile << order[number] << "\n";
       for (int displayOrder = 0; displayOrder < number;)
     {
         if (order[displayOrder].length() > 2)
@@ -101,5 +102,7 @@ int main()
 
         displayOrder++;
     }
+    myfile << order[number] << "\n";
+    myfile << order[number+1];
     return 0;
 }
