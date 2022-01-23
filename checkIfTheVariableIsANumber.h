@@ -1,12 +1,15 @@
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <conio.h>
-using namespace std;
+#include <iostream> // biblioteka wejscia wyjscia
+#include <string> // biblioteka obslugujaca lancuchy znakow
+#include <sstream> // zapewnia obsluge strumieni ciagow znakow
+#include <conio.h> // obsluga wejscia wyjscia z konsoli/terminala
+using namespace std; // zastosowanie przestrzeni nazw
 
 #ifndef checkIfTheVariableIsANumber
 #define checkIfTheVariableIsANumber
+
+// Funkcja sprawdzajaca poprawnosc wprowadzanych danych. To znaczy czy wartosc podana prze uzytkownika jest liczba.
+// W przypadku podania blednej wartosci funkcja wskazuje i wymusza wprowadzenie prawidlowej wartosci. 
 
 string checkIfTheVariableIsANumber1(string numberToCheck)
 {
